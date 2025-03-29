@@ -4,3 +4,5 @@ hello-arg = Hello {$name}!
 hello-arg-2 = Hello {$name1} and {$name2}!
 hello-attr = Uninspiring.
     .text = Hello, attribute!
+hello-recursive = Hello { hello-recursive-descent }
+hello-recursive-descent = to you, {$name}!

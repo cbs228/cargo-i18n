@@ -90,3 +90,16 @@ fn with_attr_and_args() {
         fl!(loader, "hello-arg", "attr", name = "Bob")
     );
 }
+
+#[test]
+fn with_recursive_args() {
+    let loader: FluentLanguageLoader = fluent_language_loader!();
+    loader
+        .load_languages(&Localizations, &[loader.fallback_language().clone()])
+        .unwrap();
+
+    pretty_assertions::assert_eq!(
+        "Hello to you, \u{2068}Bob\u{2069}!",
+        fl!(loader, "hello-recursive", name = "Bob")
+    );
+}
